@@ -10,8 +10,15 @@ namespace CSharp_Basics
     [TestFixture]
     public class StringsAndItsOperations
     {
-        private string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
         
+        [Test]
+        public void Replace()
+        {
+            string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
+            string Poem2 = Poem.Replace(",",",\n").Replace(".", ".\n").Replace(":", ":\n");
+            Console.WriteLine(Poem2);
+        }
+
         /// <summary>
         /// String is diffrent then previues types we talk about
         /// values of string we are passing in quotation marks
