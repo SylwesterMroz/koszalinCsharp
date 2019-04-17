@@ -11,80 +11,79 @@ namespace CSharp_Basics
     public class StringsAndItsOperations
     {
         private string Poem = "Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie mogę powiedzieć: Mój przyjacielu.Po dodaniu imienia wiersz będzie już wierszykiem spersonalizowanym:Powiem szczerze, znajomych mam wielu,Ale tylko do Ciebie Andrzeju mogę powiedzieć: Mój przyjacielu.";
-        //        /// <summary>
-        //        /// String is diffrent then previues types we talk about
-        //        /// values of string we are passing in quotation marks
-        //        /// 
-        //        /// Create new string with your name and then add them together
-        //        /// </summary>
-        //        [Test]
-        //        public void Bascis_Of_Strings()
-        //        {
-        //            string Example = "This is example string";
-        //        }
+        
+        /// <summary>
+        /// String is diffrent then previues types we talk about
+        /// values of string we are passing in quotation marks
+        /// 
+        /// Create new string with your name and then add them together
+        /// </summary>
+        [Test]
+        public void Bascis_Of_Strings()
+        {
+            string Example = "This is example string";
+        }
 
-        //        /// <summary>
-        //        ///  string is  first Reference Type you see (We will talk more about them later)
-        //        ///  which means he doesn't have to have value.
-        //        ///  use string.Empty;
-        //        ///  create new strings itsEmpty and make it empty
-        //        /// </summary>
+        /// <summary>
+        ///  string is  first Reference Type you see (We will talk more about them later)
+        ///  which means he doesn't have to have value.
+        ///  use string.Empty;
+        ///  create new strings itsEmpty and make it empty
+        /// </summary>
         [Test]
         public void String_Initialization()
         {
-            int x = 6;
-            double z = 5;
-            string errorMessage = "There was error with operation values \n" + x + " and " + z;
-            string errorMessageFormat = string.Format("There was error with operation values \n{0} and {1}", x, z);
-            string errorMessageFormatDollar = $"There was error with operation values \n{x} and {z}               ";
-            Console.WriteLine(errorMessage);
-            Console.WriteLine(errorMessageFormat);
-            Console.WriteLine(errorMessageFormatDollar);
-            //Assert.That(itsEmpty, Is.Not.Null);
-            Assert.That(z, Is.EqualTo(6));
+            string itsEmpty = string.Empty;
+            
+            Assert.That(itsEmpty, Is.Not.Null);
         }
 
-        //        /// <summary>
-        //        /// + is not best way of adding string
-        //        ///  use string.Concat();
-        //        ///  put sentence together
-        //        /// </summary>
-        //        [Test]
-        //        public void Adding_String()
-        //        {
-        //            string first = "pancakes.";
-        //            string second = "I like";
-        //
-        //            Assert.AreEqual(restult, "I like pancakes.");
-        //        }
+        /// <summary>
+        /// + is not best way of adding string
+        ///  use string.Concat();
+        ///  put sentence together
+        /// </summary>
+        [Test]
+        public void Adding_String()
+        {
+            string first = "pancakes.";
+            string second = "I like ";
+            string result = string.Concat(second, first);
 
-        //        /// <summary>
-        //        /// There is few more ways of cosntructing strings for example if you need add values of other variables inside you can do
-        //        /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
-        //        /// create string with both x and y insed
-        //        /// </summary>
-        //        [Test]
-        //        public void String_Format()
-        //        {
-        //            int x = 500;
-        //            int y = 453;
-        //            string result;
-        //
-        //            StringAssert.Contains(result, x.ToString());
-        //            StringAssert.Contains(result, y.ToString());
-        //        }
+            Assert.AreEqual(result, "I like pancakes.");
+        }
 
-        //        /// <summary>
-        //        /// From theString return word "thing".
-        //        /// hint use Substring() method
-        //        /// </summary>
-        //        [Test]
-        //        public void Substrings()
-        //        {
-        //            var theString =
-        //                "The interesting thing about London is that there are always stylish surprises around every corner.";
-        //
-        //            Assert.AreEqual(result,"thing");
-        //        }
+        /// <summary>
+        /// There is few more ways of cosntructing strings for example if you need add values of other variables inside you can do
+        /// https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netframework-4.7.1#Starting
+        /// create string with both x and y insed
+        /// </summary>
+        [Test]
+        public void String_Format()
+        {
+            int x = 500;
+            int y = 453;
+            string result = string.Format("Number x equals {0} \nNumber y equals {1}", x, y);
+
+            StringAssert.Contains(x.ToString(), result);
+            StringAssert.Contains(y.ToString(), result);
+            //Console.WriteLine(result);
+        }
+
+        /// <summary>
+        /// From theString return word "thing".
+        /// hint use Substring() method
+        /// </summary>
+        [Test]
+        public void Substrings()
+        {
+            var theString =
+                "The interesting thing about London is that there are always stylish surprises around every corner.";
+
+           string result = theString.Substring(16,5);
+           
+
+            Assert.AreEqual("thing", result);
+        }
     }
 }
