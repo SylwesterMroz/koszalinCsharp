@@ -10,6 +10,7 @@ namespace CSharp_Basics
     {
         Koszalin,
         Wroclaw,
-        Szczecin
+        Szczecin,
+        ZielonaGora
     }
 }

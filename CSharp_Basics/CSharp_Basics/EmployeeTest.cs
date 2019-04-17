@@ -63,5 +63,23 @@ namespace CSharp_Basics
             Assert.That(employee7.ProgramingLanguage, Is.EqualTo("Python"));
         }
 
+        [TestCase(Location.Koszalin,true)]
+        [TestCase(Location.Szczecin, true)]
+        [TestCase(Location.Wroclaw, false)]
+        [TestCase(Location.ZielonaGora, false)]
+        public void IsNorth(Location loc, bool result)
+        {
+            var employee8 = new Employee("Kamil", 523, loc);
+
+            Assert.That(employee8.IsNorthOfWarsaw, Is.EqualTo(result));
+        }
+
+        public void OutOfRange()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(
+                () => new Employee("dsf",badge, loc)
+                )
+        }
+
     }
 }
